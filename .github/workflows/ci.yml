@@ -42,7 +42,7 @@ jobs:
           report-json: 'eslint_report.json'
 
       - name: TypeScript Check
-        run: yarn check
+        run: yarn typescript
 
       - name: Test That The Project Builds
         run: yarn build
