@@ -2,23 +2,24 @@
 
 ## Developing
 
-1. Pulled the repository
-2. Installed dependencies with `yarn install`
+1. Pull the repository
+2. Install dependencies with `pnpm i`
 3. Start a development server:
 
 ```bash
-yarn dev
-
-# or start the server and open the app in a new browser tab
-yarn dev -- --open
+pnpm run dev
 ```
 
 ## Building
 
-To create a production version of your app:
+To build the project, run:
 
 ```bash
-yarn build
+docker build -t scorescout .
 ```
 
-You can preview the production build with `yarn preview`.
+To run the project, run:
+
+```bash
+docker run -p 3000:3000 scorescout
+```
