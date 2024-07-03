@@ -7,6 +7,20 @@
 	export let placeholder: string = '';
 	export let disabled: boolean = false;
 	export let label: string = '';
+	export let type:
+		| 'text'
+		| 'password'
+		| 'email'
+		| 'number'
+		| 'tel'
+		| 'url'
+		| 'search'
+		| 'date'
+		| 'time'
+		| 'datetime-local'
+		| 'month'
+		| 'week'
+		| 'color' = 'text';
 
 	function handleChange(event: Event) {
 		const target = event.target as HTMLInputElement;
@@ -19,6 +33,20 @@
 		disabled?: boolean;
 		onChange?: (value: string) => void;
 		label?: string;
+		type?:
+			| 'text'
+			| 'password'
+			| 'email'
+			| 'number'
+			| 'tel'
+			| 'url'
+			| 'search'
+			| 'date'
+			| 'time'
+			| 'datetime-local'
+			| 'month'
+			| 'week'
+			| 'color';
 	};
 
 	let className: $$Props['class'] = undefined;
@@ -32,7 +60,7 @@
 			<br />
 		{/if}
 		<input
-			type="text"
+			{type}
 			bind:value
 			{placeholder}
 			{disabled}

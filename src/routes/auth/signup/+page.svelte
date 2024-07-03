@@ -4,56 +4,80 @@
 	import Input from '$lib/components/input.svelte';
 	import Button from '$lib/components/button.svelte';
 	import { LoaderCircle, SendHorizontal } from 'lucide-svelte';
-	import AuthForm from '../(components)/auth-form.svelte';
+	import { Field, Control, FieldErrors } from 'formsnap';
+	import type { PageData } from './$types';
+	import { schema } from './schema';
+	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { superForm } from 'sveltekit-superforms';
 
-	let email = '';
-	let password = '';
-	let confirmPassword = '';
+	export let data: PageData;
+
+	const form = superForm(data.form, {
+		validators: zodClient(schema),
+	});
+	const { form: formData, enhance } = form;
+
 	let isLoading = false;
-
-	async function handleSubmit() {
-		isLoading = true;
-		try {
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-		} finally {
-			isLoading = false;
-		}
-	}
 </script>
 
 <FullScreenForm>
-	<AuthForm {handleSubmit} title="Sign up">
-		<svelte:fragment slot="inputs">
-			<Input
-				value={email}
-				placeholder="Write your email"
-				disabled={isLoading}
-				label="E-mail"
-				class="w-full"
-			/>
-			<Input
-				value={password}
-				placeholder="Write your password"
-				disabled={isLoading}
-				label="Password"
-				class="w-full"
-			/>
-			<Input
-				value={confirmPassword}
-				placeholder="Write your password again"
-				disabled={isLoading}
-				label="Confirm password"
-				class="w-full"
-			/>
-		</svelte:fragment>
-		<Button type="submit" disabled={isLoading} slot="button">
-			{#if isLoading}
-				<LoaderCircle class="w-5" />
-			{:else}
-				<SendHorizontal class="w-5" />
-			{/if}
-			Sign up
-		</Button>
-	</AuthForm>
+	<form
+		method="POST"
+		class="flex gap-2.5 flex-col p-10 w-[560px] shadow-form rounded-30"
+		use:enhance
+	>
+		<h1 class="text-4xl font-bold">Sign up</h1>
+		<Field {form} name="email">
+			<Control let:attrs>
+				<Input
+					{...attrs}
+					bind:value={$formData.email}
+					placeholder="Write your email"
+					disabled={isLoading}
+					label="E-mail"
+					class="w-full"
+				/>
+			</Control>
+			<FieldErrors class="text-red-500" />
+		</Field>
+		<Field {form} name="password">
+			<Control let:attrs>
+				<Input
+					{...attrs}
+					bind:value={$formData.password}
+					placeholder="Write your password"
+					disabled={isLoading}
+					label="Password"
+					class="w-full"
+					type="password"
+				/>
+			</Control>
+			<FieldErrors class="text-red-500" />
+		</Field>
+		<Field {form} name="confirmPassword">
+			<Control let:attrs>
+				<Input
+					{...attrs}
+					bind:value={$formData.confirmPassword}
+					placeholder="Write your password again"
+					disabled={isLoading}
+					label="Confirm password"
+					class="w-full"
+					type="password"
+				/>
+			</Control>
+			<FieldErrors class="text-red-500" />
+		</Field>
+		<div class="flex justify-end w-full mt-2.5">
+			<Button type="submit" disabled={isLoading}>
+				{#if isLoading}
+					<LoaderCircle class="w-5" />
+				{:else}
+					<SendHorizontal class="w-5" />
+				{/if}
+				Sign up
+			</Button>
+		</div>
+	</form>
 	<AuthToggleBtn text="I already have an account" href="/auth/signin" />
 </FullScreenForm>
