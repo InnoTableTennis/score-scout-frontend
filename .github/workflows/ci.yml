@@ -26,13 +26,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dev dependencies
-        run: yarn install --immutable --immutable-cache --check-cache
-        env:
-          CI: TRUE
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.0.0
+        with:
+          version: 9.3.0
+          run_install: true
 
       - name: Save Code Linting Report JSON
-        run: yarn lint:report
+        run: pnpm run lint:report
         # Continue to the next step even if this fails
         continue-on-error: true
       - name: Annotate Code Linting Results
@@ -42,7 +43,7 @@ jobs:
           report-json: 'eslint_report.json'
 
       - name: TypeScript Check
-        run: yarn typescript
+        run: pnpm run typescript
 
       - name: Test That The Project Builds
-        run: yarn build
+        run: pnpm run build
