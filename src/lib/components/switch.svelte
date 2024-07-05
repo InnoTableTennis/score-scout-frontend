@@ -3,7 +3,6 @@
 	import { cn } from '$lib/utils.js';
 
 	type $$Props = Switch.Props;
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type $$Events = Switch.Events;
 
 	let className: $$Props['class'] = undefined;

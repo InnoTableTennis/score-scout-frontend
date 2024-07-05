@@ -17,6 +17,7 @@
 		options?: string[];
 		selected?: string;
 	};
+	type $$Events = Required<Select.ItemEvents>;
 
 	let className: $$Props['class'] = undefined;
 	export { className as class };
@@ -63,6 +64,9 @@
 					class="flex w-full select-none items-center text-xl text-foreground-select-option leading-6 py-15px px-5 outline-none transition-all data-[highlighted]:bg-muted hover:bg-gray-300 last:rounded-br-20 last:rounded-bl-20 first:rounded-tl-20 first:rounded-tr-20"
 					value={option.value}
 					label={option.label}
+					on:click
+					on:pointermove
+					on:focusin
 				>
 					{option.label}
 					<Select.ItemIndicator class="ml-auto" asChild={false}>

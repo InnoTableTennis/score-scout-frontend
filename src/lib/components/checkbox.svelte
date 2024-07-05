@@ -4,7 +4,6 @@
 	import { cn } from '$lib/utils.js';
 
 	type $$Props = Checkbox.Props;
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type $$Events = Checkbox.Events;
 
 	let className: $$Props['class'] = undefined;

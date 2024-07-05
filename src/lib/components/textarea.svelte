@@ -22,7 +22,6 @@
 	};
 
 	type $$Props = HTMLTextareaAttributes;
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type $$Events = TextareaEvents;
 
 	let className: $$Props['class'] = undefined;
