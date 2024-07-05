@@ -7,7 +7,7 @@
 
 <a
 	{href}
-	class="font-semibold text-xl flex items-center gap-2 transform hover:scale-102 transition-transform ease"
+	class="p-4 font-semibold text-xl flex items-center gap-2 transform hover:scale-102 transition-transform ease"
 >
 	{text}
 	<ArrowRight />
