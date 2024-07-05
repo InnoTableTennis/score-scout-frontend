@@ -8,19 +8,30 @@ export default {
 		extend: {
 			colors: {
 				primary: '#D22D19',
+				'primary-hover': '#A82313',
+				'secondary-btn-hover': '#FCEAE8',
 				secondary: '#F6DADA',
 				'foreground-hint': '#A1A1A1',
 				'foreground-primary': '#222222',
+				'icon-muted': '#535353',
+				'foreground-select-option': '#654E4F',
+				'toggle-border': '#C6C7C1',
+				'text-hint': '#ACA4A2',
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)',
+				'8': '8px',
+				'5': '5px',
+				'4': '4px',
+				'3': '3px',
+				'2': '2px',
 				'20': '20px',
 				'30': '30px',
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans],
+			},
+			spacing: {
+				'15px': '15px',
 			},
 			scale: {
 				101: '1.01',

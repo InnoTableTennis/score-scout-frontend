@@ -9,6 +9,7 @@
 	import { schema } from './schema';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms';
+	import Label from '$lib/components/label.svelte';
 
 	export let data: PageData;
 
@@ -26,31 +27,35 @@
 		class="flex gap-2.5 flex-col p-10 w-[560px] shadow-form rounded-30"
 		use:enhance
 	>
-		<h1 class="text-4xl font-bold">Sign in</h1>
+		<h1 class="text-4xl font-bold mb-7">Sign in</h1>
 		<Field {form} name="email">
 			<Control let:attrs>
-				<Input
-					{...attrs}
-					bind:value={$formData.email}
-					placeholder="Write your email"
-					disabled={isLoading}
-					label="E-mail"
-					class="w-full"
-				/>
+				<Label>
+					E-mail
+					<Input
+						{...attrs}
+						bind:value={$formData.email}
+						placeholder="Write your email"
+						disabled={isLoading}
+						class="w-full mt-1"
+					/>
+				</Label>
 			</Control>
 			<FieldErrors class="text-red-500" />
 		</Field>
 		<Field {form} name="password">
 			<Control let:attrs>
-				<Input
-					{...attrs}
-					bind:value={$formData.password}
-					placeholder="Write your password"
-					disabled={isLoading}
-					label="Password"
-					class="w-full"
-					type="password"
-				/>
+				<Label>
+					Password
+					<Input
+						{...attrs}
+						bind:value={$formData.password}
+						placeholder="Write your password"
+						disabled={isLoading}
+						class="w-full mt-1"
+						type="password"
+					/>
+				</Label>
 			</Control>
 			<FieldErrors class="text-red-500" />
 		</Field>

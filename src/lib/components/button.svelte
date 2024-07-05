@@ -1,34 +1,42 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
 	import { cn } from '$lib/utils.js';
+	import { Button } from 'bits-ui';
+	import { type VariantProps, tv } from 'tailwind-variants';
 
-	export let onClick: () => void = () => {};
-	export let disabled: boolean = false;
-	export let type: 'button' | 'submit' | null | undefined = 'button';
-
-	function handleClick() {
-		if (disabled) return;
-		onClick();
-	}
-
-	type $$Props = HTMLAttributes<HTMLDivElement> & {
-		type?: 'button' | 'submit' | null | undefined;
-		disabled?: boolean;
-		onClick?: () => void;
-	};
+	type $$Props = Button.Props & VariantProps<typeof buttonVariants>;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type $$Events = Button.Events;
 
 	let className: $$Props['class'] = undefined;
+	export let variant: $$Props['variant'] = 'primary';
+	export let builders: $$Props['builders'] = [];
 	export { className as class };
+
+	const buttonVariants = tv({
+		base: 'font-bold text-xl leading-6 flex items-center justify-center p-2.5 px-5 rounded-20 gap-3 transition-all ease transform active:scale-95',
+		variants: {
+			variant: {
+				primary: 'text-white bg-primary hover:bg-primary-hover',
+				secondary:
+					'text-primary bg-transparent border-2 border-primary hover:bg-secondary-btn-hover',
+				ghost: 'text-primary bg-transparent hover:underline',
+				disabled:
+					'text-foreground-select-option bg-secondary cursor-not-allowed',
+			},
+		},
+		defaultVariants: {
+			variant: 'primary',
+		},
+	});
 </script>
 
-<button
-	on:click={handleClick}
-	{type}
-	{disabled}
-	class={cn(
-		'text-white font-bold text-xl leading-6 flex items-center justify-center p-2.5 px-5 rounded-20 bg-primary gap-3',
-		className
-	)}
+<Button.Root
+	{builders}
+	class={cn(buttonVariants({ variant, className }))}
+	type="button"
+	{...$$restProps}
+	on:click
+	on:keydown
 >
 	<slot />
-</button>
+</Button.Root>
