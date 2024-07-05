@@ -37,7 +37,7 @@
 
 <input
 	class={cn(
-		'border-secondary rounded-20 border-2 p-2.5 px-5 text-foreground-primary text-xl leading-7 font-medium focus:border-primary outline-none transition-all placeholder-foreground-hint disabled:opacity-50',
+		'border-secondary rounded-20 border-2 p-2.5 px-5 text-foreground-primary text-xl leading-7 font-medium focus:border-primary outline-none transition-all placeholder-foreground-hint disabled:opacity-50 disabled:cursor-not-allowed',
 		className
 	)}
 	bind:value
