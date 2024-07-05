@@ -4,7 +4,6 @@
 	import { type VariantProps, tv } from 'tailwind-variants';
 
 	type $$Props = Button.Props & VariantProps<typeof buttonVariants>;
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type $$Events = Button.Events;
 
 	let className: $$Props['class'] = undefined;
