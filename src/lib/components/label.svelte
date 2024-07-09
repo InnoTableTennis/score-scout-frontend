@@ -10,7 +10,7 @@
 
 <LabelPrimitive.Root
 	class={cn(
-		'font-normal text-sm text-foreground-select-option peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+		'font-normal text-xs md:text-sm text-foreground-select-option peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
 		className
 	)}
 	{...$$restProps}

@@ -17,6 +17,9 @@ importers:
       lucide-svelte:
         specifier: ^0.399.0
         version: 0.399.0(svelte@5.0.0-next.173)
+      svelte-sonner:
+        specifier: ^0.3.25
+        version: 0.3.25(svelte@5.0.0-next.173)
       sveltekit-superforms:
         specifier: ^2.15.2
         version: 2.15.2(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.173)(vite@5.3.3))(svelte@5.0.0-next.173)(vite@5.3.3))(svelte@5.0.0-next.173)
@@ -1598,6 +1601,11 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  svelte-sonner@0.3.25:
+    resolution: {integrity: sha512-jYAHqDc1fBAotI+9g9SW2Pc6sKJ8oVl7aXB/EhQsxiVADAZ9AX4w7dxDI1oyskD6pG8mhYIKXi+5WqFmCRqFyw==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
 
   svelte@5.0.0-next.173:
     resolution: {integrity: sha512-/aJEG+JlvChIZO+GXMhWuAvZ7zCl3psPCcgVEKsiJrbO0whr3b6mb5/6Qv3YZbiXNxEPR5WklDJUOUnYddOfUw==}
@@ -3235,6 +3243,10 @@ snapshots:
       postcss: 8.4.39
       postcss-load-config: 4.0.2(postcss@8.4.39)
       typescript: 5.5.3
+
+  svelte-sonner@0.3.25(svelte@5.0.0-next.173):
+    dependencies:
+      svelte: 5.0.0-next.173
 
   svelte@5.0.0-next.173:
     dependencies:
