@@ -17,6 +17,7 @@ export default {
 				'foreground-select-option': '#654E4F',
 				'toggle-border': '#C6C7C1',
 				'text-hint': '#ACA4A2',
+				subtle: 'rgba(0, 0, 0, 0.04)',
 			},
 			borderRadius: {
 				'8': '8px',

@@ -13,6 +13,7 @@ export const load: PageServerLoad = async () => {
 export const actions: Actions = {
 	default: async (event) => {
 		const form = await superValidate(event, zod(schema));
+		await new Promise((resolve) => setTimeout(resolve, 2000));
 		if (!form.valid) {
 			return fail(400, { form });
 		}

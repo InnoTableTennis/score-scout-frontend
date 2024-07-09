@@ -12,15 +12,13 @@
 	export { className as class };
 
 	const buttonVariants = tv({
-		base: 'font-bold text-xl leading-6 flex items-center justify-center p-2.5 px-5 rounded-20 gap-3 transition-all ease transform active:scale-95',
+		base: 'font-bold text-xl leading-6 flex items-center justify-center p-2.5 px-5 rounded-20 gap-3 transition-all ease transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed',
 		variants: {
 			variant: {
 				primary: 'text-white bg-primary hover:bg-primary-hover',
 				secondary:
 					'text-primary bg-transparent border-2 border-primary hover:bg-secondary-btn-hover',
 				ghost: 'text-primary bg-transparent hover:underline',
-				disabled:
-					'text-foreground-select-option bg-secondary cursor-not-allowed',
 			},
 		},
 		defaultVariants: {

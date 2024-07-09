@@ -10,21 +10,44 @@
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms';
 	import Label from '$lib/components/label.svelte';
+	import { toast, Toaster } from 'svelte-sonner';
+	import { customGoto } from '$lib/utils';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 
 	const form = superForm(data.form, {
 		validators: zodClient(schema),
+		onSubmit: () => {
+			isLoading = true;
+		},
+		onResult: (event) => {
+			isLoading = false;
+			if (event.result.status === 200) {
+				toast.success("You've successfully signed in!");
+				customGoto('/');
+			} else {
+				toast.error("Couldn't sign in, please try again.");
+			}
+		},
 	});
 	const { form: formData, enhance } = form;
 
 	let isLoading = false;
+	let mounted = false;
+
+	onMount(() => {
+		mounted = true;
+	});
 </script>
 
 <FullScreenForm>
 	<form
 		method="POST"
-		class="flex gap-2.5 flex-col p-10 w-[560px] shadow-form rounded-30"
+		class="flex gap-2.5 flex-col p-10 w-full md:w-[560px] rounded-30 transition-all ease duration-300"
+		class:shadow-form={mounted}
+		class:border-subtle={!mounted}
+		class:border={!mounted}
 		use:enhance
 	>
 		<h1 class="text-4xl font-bold mb-7">Sign in</h1>
@@ -62,7 +85,7 @@
 		<div class="flex justify-end w-full mt-2.5">
 			<Button type="submit" disabled={isLoading}>
 				{#if isLoading}
-					<LoaderCircle class="w-5" />
+					<LoaderCircle class="w-5 animate-spin" />
 				{:else}
 					<SendHorizontal class="w-5" />
 				{/if}
@@ -72,3 +95,4 @@
 	</form>
 	<AuthToggleBtn text="I don't have an account" href="/auth/signup" />
 </FullScreenForm>
+<Toaster />

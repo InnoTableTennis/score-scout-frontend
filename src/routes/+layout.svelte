@@ -14,7 +14,7 @@
 		<div
 			class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center gap-2"
 		>
-			<LoaderCircle class="w-10 h-10 animate-spin" />
+			<LoaderCircle class="text-red-100 w-10 h-10 animate-spin" />
 		</div>
 	</div>
 {/if}

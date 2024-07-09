@@ -9,8 +9,10 @@
 </script>
 
 <div class="h-screen w-screen bg-white p-4">
-	<div class="grid grid-cols-3 gap-16">
-		<div class="col-span-1 shadow-form rounded-30 p-8">
+	<div class="py-4 md:p-0 md:grid grid-cols-3 gap-16">
+		<div
+			class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8"
+		>
 			<h1 class="text-3xl font-bold text-center">Buttons</h1>
 			<div class="flex gap-2 mt-4 justify-center">
 				<Button>Primary</Button>
@@ -18,10 +20,16 @@
 			</div>
 			<div class="flex gap-2 mt-2 justify-center">
 				<Button variant="ghost">Ghost</Button>
-				<Button variant="disabled">Disabled</Button>
+				<Button disabled>Primary</Button>
+			</div>
+			<div class="flex gap-2 mt-2 justify-center">
+				<Button variant="ghost" disabled>Ghost</Button>
+				<Button variant="secondary" disabled>Secondary</Button>
 			</div>
 		</div>
-		<div class="col-span-1 shadow-form rounded-30 p-8">
+		<div
+			class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8"
+		>
 			<h1 class="text-3xl font-bold text-center">Checkbox</h1>
 			<div class="flex gap-2 mt-4 justify-center">
 				<Checkbox />
@@ -33,7 +41,7 @@
 			</div>
 		</div>
 		<div
-			class="col-span-1 shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
+			class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
 		>
 			<h1 class="text-3xl font-bold text-center mb-2">Inputs</h1>
 			<Label class="w-full">
@@ -47,7 +55,7 @@
 			<Input class="w-full" placeholder="Disabled" disabled />
 		</div>
 		<div
-			class="col-span-1 shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
+			class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
 		>
 			<h1 class="text-3xl font-bold text-center mb-2">Select</h1>
 			<Select
@@ -56,7 +64,7 @@
 			/>
 		</div>
 		<div
-			class="col-span-1 shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
+			class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
 		>
 			<h1 class="text-3xl font-bold text-center mb-2">Textarea</h1>
 			<Textarea
@@ -67,7 +75,7 @@
 			/>
 		</div>
 		<div
-			class="col-span-1 shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
+			class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8 flex flex-col gap-2 items-center"
 		>
 			<h1 class="text-3xl font-bold text-center mb-2">Switch</h1>
 			<div class="flex gap-2 mt-4 justify-center">
