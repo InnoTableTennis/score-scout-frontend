@@ -28,7 +28,7 @@
   }
 </script>
 
-<button class="fixed top-4 left-4 w-10 h-10 z-50 md:hidden" on:click={handleClick}>
+<button class="z-50 fixed top-4 left-4 w-10 h-10 md:hidden" on:click={handleClick}>
   {#if visible}
     <Plus class="h-full w-full transform rotate-45 text-primary" />
   {:else}
@@ -36,10 +36,10 @@
   {/if}
 </button>
 {#if visible}
-  <div class="w-full md:w-[325px] h-full fixed bg-secondary z-10" in:fly={{ x: -500 }} out:fly={{ x: -500 }}>
-    <slot />
+  <div class="z-40 md:z-auto w-full md:w-[325px] h-full flex flex-col justify-between fixed bg-secondary" in:fly={{ x: -500 }} out:fly={{ x: -500 }}>
+    <slot name="before" />
     {#if title || links.length > 0}
-      <div class="z-10 absolute flex h-full w-full items-end justify-center flex-col">
+      <div class="flex items-end flex-col">
         {#if title}
           <h1 class={cn('text-3xl md:text-3xl w-full text-center text-primary font-medium py-10 select-none', customTitleStyles)}>
             {title}
@@ -52,7 +52,7 @@
                 <a
                   {href}
                   class={cn(
-                    'z-50 relative block py-1 my-3 px-7 text-2xl md:text-xl text-nav-inactive text-right font-medium transform transition-all ease hover:scale-102',
+                    'relative block py-1 my-3 px-7 text-2xl md:text-xl text-nav-inactive text-right font-medium transform transition-all ease hover:scale-102',
                     active
                       ? 'text-primary after:w-2 after:h-7 after:rounded-2 after:bg-primary after:right-0 after:block after:absolute after:top-0 after:bottom-0 after:m-auto'
                       : undefined
@@ -66,5 +66,6 @@
         {/if}
       </div>
     {/if}
+    <slot name="after" />
   </div>
 {/if}

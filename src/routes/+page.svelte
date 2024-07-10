@@ -19,17 +19,18 @@
     { name: 'Sign Up', href: '/auth/signup' },
   ]}
 >
-  <Button
-    variant="ghost"
-    class="z-20 absolute top-10 right-10 md:right-auto md:left-10 m-auto text-2xl md:text-lg gap-3 md:gap-2 flex items-center justify-center"
-  >
-    <LogOut class="w-8 h-8 md:w-6 md:h-6" />
-    Logout
-  </Button>
-  <Button class="rounded-full z-20 absolute bottom-8 right-8 m-auto text-xl md:text-base leading-5 gap-2.5 flex items-center justify-center">
-    <Plus class="w-7 h-7 md:w-5 md:h-5" />
-    Create tournament
-  </Button>
+  <div slot="before" class="flex justify-end md:justify-start">
+    <Button variant="ghost" class="mt-10 mx-6 md:mx-10 text-2xl md:text-lg gap-3 md:gap-2 flex items-center justify-center">
+      <LogOut class="w-8 h-8 md:w-6 md:h-6" />
+      Logout
+    </Button>
+  </div>
+  <div slot="after" class="flex justify-end">
+    <Button class="rounded-full mb-8 mr-8 text-xl md:text-base leading-5 gap-2.5 flex items-center justify-center">
+      <Plus class="w-7 h-7 md:w-5 md:h-5" />
+      Create tournament
+    </Button>
+  </div>
 </Navbar>
 <Page>
   <div class="h-screen w-full bg-white p-4">
