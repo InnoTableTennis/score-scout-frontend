@@ -20,7 +20,7 @@
 ></Navbar>
 
 <Page>
-  <div class="h-screen w-full bg-white p-4 gap-5 pt-[225px] pl-[50px]">
+  <div class="h-screen w-full bg-white p-4 gap-5 pt-52 px-8">
     <div class="flex flex-col">
       <div class="font-bold text-[22px] text-primary pb-5">Add player</div>
       <Input variant="shadowed" class="mt-1 mb-5 w-[300px]" placeholder="Player's name" />
@@ -29,9 +29,9 @@
         Add
         <Plus class="w-6 h-6" />
       </Button>
-      <div class="pl-[6rem] align-middle">
-        <div class="text-xl">or you can upload csv</div>
-        <Button class="ml-10 mt-3" variant="secondary">
+      <div class="flex flex-col items-center gap-2 md:pl-[6rem] md:items-start">
+        <div class="text-xl">or upload csv</div>
+        <Button variant="secondary">
           Upload
           <Upload class="w-6 h-6" />
         </Button>

@@ -18,14 +18,16 @@
 ></Navbar>
 
 <Page>
-  <div class="flex h-screen w-full bg-white p-4 flex-col gap-5 pt-[225px] pl-[50px]">
+  <div class="flex h-screen w-full bg-white p-4 flex-col gap-5 pt-52 px-8">
     <div class="text-xl font-bold">Choose number of stages in your tournament</div>
-    <div class="flex flex-row">
+    <div class="flex gap-6 flex-col md:flex-row">
       <a href="/create/stage_1">
-        <TextBlock title="1 stage" class="pb-7 text-block mr-10">You will have only one stage. It can be groups or bracket.</TextBlock>
+        <TextBlock title="1 stage" class="p-4 md:pl-6 w-full h-fit md:w-[250px] md:h-[250px]"
+          >You will have only one stage. It can be groups or bracket.</TextBlock
+        >
       </a>
       <a href="/create/stage_2">
-        <TextBlock title="2 stage">
+        <TextBlock title="2 stage" class="p-4 md:pl-6 w-full h-fit md:w-[250px] md:h-[250px] ">
           You will have two stages. First stage is groups, the second can be groups or bracket. You can have several finals.
         </TextBlock>
       </a>

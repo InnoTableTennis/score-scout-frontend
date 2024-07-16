@@ -14,12 +14,12 @@
 
 <div
   class={cn(
-    'hover pl-6 rounded-[16px] w-[250px] h-[250px] shadow-[0_0_4px_2px_#0000003f] text-primary transition-colors ease-in-out hover:text-white hover:bg-primary',
+    'hover rounded-[16px] shadow-[0_0_4px_2px_#0000003f] text-primary transition-colors ease-in-out hover:text-white hover:bg-primary group',
     className
   )}
 >
-  <div class="pt-4 text-xl font-bold">{title}</div>
-  <p class="p-3 px-2 text-s leading-7 font-medium outline-none text-placeholder-foreground-hint">
+  <div class="text-xl font-bold">{title}</div>
+  <p class="text-black group-hover:text-white text-base leading-7 font-medium outline-none text-placeholder-foreground-hint">
     <slot />
   </p>
 </div>
