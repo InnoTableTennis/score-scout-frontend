@@ -9,6 +9,7 @@
   import Navbar from '$lib/components/navbar.svelte';
   import Page from '$lib/components/page.svelte';
   import { Plus, LogOut } from 'lucide-svelte';
+  import { customGoto } from '$lib/utils';
 </script>
 
 <Navbar
@@ -26,7 +27,12 @@
     </Button>
   </div>
   <div slot="after" class="flex justify-end">
-    <Button class="rounded-full mb-8 mr-8 text-xl md:text-base leading-5 gap-2.5 flex items-center justify-center">
+    <Button
+      class="rounded-full mb-8 mr-8 text-xl md:text-base leading-5 gap-2.5 flex items-center justify-center"
+      on:click={() => {
+        customGoto('/create/rating');
+      }}
+    >
       <Plus class="w-7 h-7 md:w-5 md:h-5" />
       Create tournament
     </Button>

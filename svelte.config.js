@@ -7,7 +7,7 @@ const config = {
   kit: {
     adapter: adapter(),
     csrf: {
-      checkOrigin: false, // TODO: Remove when shipping to production
+      checkOrigin: false,
     },
     alias: {
       $components: './src/components',
