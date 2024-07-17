@@ -6,4 +6,4 @@ services:
     stop_signal: SIGINT
     restart: unless-stopped
     ports:
-      - '3000:3000'
+      - '10001:3000'

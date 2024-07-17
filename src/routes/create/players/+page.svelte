@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Input from '$lib/components/input.svelte';
-  import Navbar from '$lib/components/navbar.svelte';
-  import Page from '$lib/components/page.svelte';
-  import Button from '$lib/components/button.svelte';
+  import Input from '$lib/components/Input.svelte';
+  import Navbar from '$lib/components/Navbar.svelte';
+  import Page from '$lib/components/Page.svelte';
+  import Button from '$lib/components/Button.svelte';
   import NavButtons from '../(components)/NavButtons.svelte';
   import { customGoto } from '$lib/utils';
   import { Plus, Upload } from 'lucide-svelte';
