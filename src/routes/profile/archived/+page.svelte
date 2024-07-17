@@ -1,8 +1,8 @@
 <script>
-  import Navbar from '$lib/components/navbar.svelte';
-  import Page from '$lib/components/page.svelte';
+  import Navbar from '$lib/components/Navbar.svelte';
+  import Page from '$lib/components/Page.svelte';
   import TournamentBlock from '../(components)/TournamentBlock.svelte';
-  import Button from '$lib/components/button.svelte';
+  import Button from '$lib/components/Button.svelte';
   import { Plus, LogOut } from 'lucide-svelte';
   import ProfileIcon from '$lib/components/ProfileIcon.svelte';
   import { customGoto } from '$lib/utils';
