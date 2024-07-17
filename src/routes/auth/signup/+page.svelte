@@ -1,15 +1,15 @@
 <script lang="ts">
-  import FullScreenForm from '../(components)/full-screen-form.svelte';
-  import AuthToggleBtn from '../(components)/auth-toggle-btn.svelte';
-  import Input from '$lib/components/input.svelte';
-  import Button from '$lib/components/button.svelte';
+  import FullScreenForm from '../(components)/FullScreenForm.svelte';
+  import AuthToggleBtn from '../(components)/AuthToggleBtn.svelte';
+  import Input from '$lib/components/Input.svelte';
+  import Button from '$lib/components/Button.svelte';
   import { LoaderCircle, SendHorizontal } from 'lucide-svelte';
   import { Field, Control, FieldErrors } from 'formsnap';
   import type { PageData } from './$types';
   import { schema } from './schema';
   import { zodClient } from 'sveltekit-superforms/adapters';
   import { superForm } from 'sveltekit-superforms';
-  import Label from '$lib/components/label.svelte';
+  import Label from '$lib/components/Label.svelte';
   import { toast, Toaster } from 'svelte-sonner';
   import { customGoto } from '$lib/utils';
   import { onMount } from 'svelte';

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import Checkbox from '$lib/components/checkbox.svelte';
-  import Button from '$lib/components/button.svelte';
-  import Input from '$lib/components/input.svelte';
-  import Select from '$lib/components/select.svelte';
-  import Label from '$lib/components/label.svelte';
-  import Textarea from '$lib/components/textarea.svelte';
-  import Switch from '$lib/components/switch.svelte';
-  import Navbar from '$lib/components/navbar.svelte';
-  import Page from '$lib/components/page.svelte';
+  import Checkbox from '$lib/components/Checkbox.svelte';
+  import Button from '$lib/components/Button.svelte';
+  import Input from '$lib/components/Input.svelte';
+  import Select from '$lib/components/Select.svelte';
+  import Label from '$lib/components/Label.svelte';
+  import Textarea from '$lib/components/Textarea.svelte';
+  import Switch from '$lib/components/Switch.svelte';
+  import Navbar from '$lib/components/Navbar.svelte';
+  import Page from '$lib/components/Page.svelte';
   import { Plus, LogOut } from 'lucide-svelte';
   import { customGoto } from '$lib/utils';
 </script>

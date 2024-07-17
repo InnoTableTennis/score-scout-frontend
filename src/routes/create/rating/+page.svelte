@@ -1,7 +1,7 @@
 <script>
-  import Switch from '$lib/components/switch.svelte';
-  import Navbar from '$lib/components/navbar.svelte';
-  import Page from '$lib/components/page.svelte';
+  import Switch from '$lib/components/Switch.svelte';
+  import Navbar from '$lib/components/Navbar.svelte';
+  import Page from '$lib/components/Page.svelte';
   import NavButtons from '../(components)/NavButtons.svelte';
   import { customGoto } from '$lib/utils';
 </script>

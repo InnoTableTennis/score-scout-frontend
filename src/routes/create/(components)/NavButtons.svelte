@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from '$lib/components/button.svelte';
+  import Button from '$lib/components/Button.svelte';
   import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
   export let next: (() => void) | undefined = undefined;
