@@ -2,8 +2,19 @@
   import '../app.css';
   import { LoaderCircle } from 'lucide-svelte';
   import { fade } from 'svelte/transition';
-  import { navigating } from '$app/stores';
+  import { navigating, page } from '$app/stores';
+  import ProfileIcon from '$lib/components/ProfileIcon.svelte';
+
+  let showProfileIcon = true;
+
+  $: {
+    showProfileIcon = !$page.url.pathname.includes('/auth/');
+  }
 </script>
+
+{#if showProfileIcon}
+  <ProfileIcon />
+{/if}
 
 {#if $navigating}
   <div class="fixed w-full h-full backdrop-blur-xl bg-black bg-opacity-50 z-50" in:fade={{ duration: 100 }} out:fade={{ duration: 100 }}>
