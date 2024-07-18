@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
   import Navbar from '$lib/components/Navbar.svelte';
   import Page from '$lib/components/Page.svelte';
   import TournamentBlock from '../(components)/TournamentBlock.svelte';
   import Button from '$lib/components/Button.svelte';
   import { Plus, LogOut } from 'lucide-svelte';
-  import ProfileIcon from '$lib/components/ProfileIcon.svelte';
   import { customGoto } from '$lib/utils';
+  import type { ITournament } from '$lib/types';
 
-  const tournaments = [
+  const tournaments: ITournament[] = [
     {
       title: 'Fall Students Tournament',
       slug: 'fall-students-tournament',
@@ -61,19 +61,10 @@
 </Navbar>
 
 <Page>
-  <ProfileIcon />
   <div class="flex h-screen w-full bg-white p-4 flex-col gap-5 pt-[120px] pl-[50px]">
     <div class="flex flex-col gap-[40px]">
       {#each tournaments as tournament}
-        <a href={`/tournament/${tournament.slug}`}>
-          <TournamentBlock
-            title={tournament.title}
-            date={tournament.date}
-            participantsCount={tournament.participantsCount}
-            gamesPlayedCount={tournament.gamesPlayedCount}
-            customText={tournament.customText}
-          />
-        </a>
+        <TournamentBlock {...tournament} />
       {/each}
     </div>
   </div>
