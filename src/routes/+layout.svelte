@@ -8,7 +8,7 @@
   let showProfileIcon = true;
 
   $: {
-    showProfileIcon = !$page.url.pathname.includes('auth');
+    showProfileIcon = !$page.url.pathname.includes('/auth/');
   }
 </script>
 
