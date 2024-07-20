@@ -8,8 +8,11 @@
   import Switch from '$lib/components/Switch.svelte';
   import Navbar from '$lib/components/Navbar.svelte';
   import Page from '$lib/components/Page.svelte';
-  import { Plus, LogOut } from 'lucide-svelte';
+  import { Plus, LogOut, CircleCheck } from 'lucide-svelte';
   import { customGoto } from '$lib/utils';
+  import Modal from '$lib/components/Modal.svelte';
+
+  let dialogOpen = false;
 </script>
 
 <Navbar
@@ -93,6 +96,28 @@
           <Switch disabled />
           <Switch disabled checked />
         </div>
+      </div>
+      <div class="col-span-1 border-2 border-subtle my-4 md:mt-0 md:border-none md:shadow-form rounded-30 p-8 flex flex-col gap-2 items-center">
+        <h1 class="text-3xl font-bold text-center mb-2">Modal</h1>
+        <Button on:click={() => (dialogOpen = true)}>Open</Button>
+        <Modal
+          title="Test modal windows"
+          description="You can put any content here. To close it click the X button on top or click outside the modal window."
+          bind:open={dialogOpen}
+        >
+          <div class="flex flex-row py-4">
+            <Label class="text-right px-2 items-center">Some name</Label>
+            <Input class="w-[8rem] h-[2em]" />
+            <Input class="w-[8rem] h-[2em]" />
+            <Label class="text-left px-2 items-center">Another name</Label>
+          </div>
+          <div class="flex justify-center">
+            <Button on:click={() => (dialogOpen = false)}
+              >Confirm
+              <CircleCheck />
+            </Button>
+          </div>
+        </Modal>
       </div>
     </div>
   </div>
