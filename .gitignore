@@ -22,3 +22,6 @@ vite.config.ts.timestamp-*
 
 # Webstorm
 .idea
+
+#Report
+eslint_report.json
