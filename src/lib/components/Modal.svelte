@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { Dialog, Separator } from 'bits-ui';
+  import { Dialog } from 'bits-ui';
   import { X } from 'lucide-svelte';
   import { fade, fly } from 'svelte/transition';
-  import Label from '$lib/components/Label.svelte';
 
   export let open = false;
   export let title: string | undefined = undefined;
