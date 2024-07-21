@@ -37,11 +37,15 @@
   </div>
   <div class="flex items-center mt-4">
     <User class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
-    <p class="text-foreground-select-option leading-7 font-medium outline-none">{participantsCount} participants</p>
+    <p class="text-foreground-select-option leading-7 font-medium outline-none">
+      <span class="font-bold text-black">{participantsCount}</span> participants
+    </p>
   </div>
   <div class="flex items-center mt-2">
     <Zap class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
-    <p class="text-foreground-select-option leading-7 font-medium outline-none">{gamesPlayedCount} games played</p>
+    <p class="text-foreground-select-option leading-7 font-medium outline-none">
+      <span class="font-bold text-black">{gamesPlayedCount}</span> games played
+    </p>
   </div>
   <div class="flex items-center mt-2">
     <Star class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
