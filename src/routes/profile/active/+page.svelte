@@ -7,24 +7,29 @@
   import { customGoto } from '$lib/utils';
   import type { ITournament } from '$lib/types';
 
-  const tournaments: ITournament[] = [
-    {
-      title: 'Fall Students Tournament',
-      slug: 'fall-students-tournament',
-      date: new Date('2023-10-22'),
-      participantsCount: 32,
-      gamesPlayedCount: 124,
-      customText: 'In progress',
-    },
-    {
-      title: 'Spring Students Tournament',
-      slug: 'spring-students-tournament',
-      date: new Date('2023-10-22'),
-      participantsCount: 32,
-      gamesPlayedCount: 124,
-      customText: 'In progress',
-    },
-  ];
+  import type { PageData } from './$types';
+
+  export let data: PageData;
+
+  // const tournaments: ITournament[] = [
+  //   {
+  //     title: 'Fall Students Tournament',
+  //     slug: 'fall-students-tournament',
+  //     date: new Date('2023-10-22'),
+  //     participantsCount: 32,
+  //     gamesPlayedCount: 124,
+  //     customText: 'In progress',
+  //   },
+  //   {
+  //     title: 'Spring Students Tournament',
+  //     slug: 'spring-students-tournament',
+  //     date: new Date('2023-10-22'),
+  //     participantsCount: 32,
+  //     gamesPlayedCount: 124,
+  //     customText: 'In progress',
+  //   },
+  // ];
+  const tournaments: ITournament[] = data.tournaments;
 </script>
 
 <Navbar
