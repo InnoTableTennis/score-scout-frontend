@@ -3,22 +3,13 @@
   import { User, Zap, Star, Trophy } from 'lucide-svelte';
   import Button from '$lib/components/Button.svelte';
 
-  type $$Props = {
-    title: string;
-    date: Date | string;
-    class?: string | undefined;
-    participantsCount: number;
-    gamesPlayedCount: number;
-    customText: string;
-  };
-
   export let title: string;
   export let date: Date | string;
   export let participantsCount: number;
   export let gamesPlayedCount: number;
   export let customText: string;
 
-  let className: $$Props['class'] = undefined;
+  let className: string | undefined = undefined;
   export { className as class };
 
   function formatDate(date: Date | string) {
