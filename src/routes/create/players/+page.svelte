@@ -5,14 +5,13 @@
   import Button from '$lib/components/Button.svelte';
   import NavButtons from '../(components)/NavButtons.svelte';
   import { customGoto } from '$lib/utils';
-  import { Plus, Upload } from 'lucide-svelte';
+  import { CheckCircle, Upload, Plus } from 'lucide-svelte';
   import Table from '$lib/components/Table.svelte';
 
   let rankingsColumns = ['Name', 'Rating'];
-  let rankingsRows = [
-    ['Name Surname', '184'],
-    ['Eman Emanrus', '123'],
-  ];
+  let rankingsRows: string[][] = [];
+  let name = '';
+  let rating = '';
 </script>
 
 <Navbar
@@ -31,9 +30,16 @@
     <div class="flex flex-col md:flex-row gap-10">
       <div class="flex flex-col">
         <div class="font-bold text-[22px] text-primary pb-5">Add player</div>
-        <Input variant="shadowed" class="mt-1 mb-5 w-[300px]" placeholder="Player's name" />
-        <Input variant="shadowed" class="mt-1 w-[300px] mb-8" placeholder="Rating (optional)" />
-        <Button class="w-[140px] mb-9">
+        <Input variant="shadowed" class="mt-1 mb-5 w-[300px]" placeholder="Player's name" bind:value={name} />
+        <Input variant="shadowed" class="mt-1 w-[300px] mb-8" placeholder="Rating (optional)" bind:value={rating} />
+        <Button
+          class="w-[140px] mb-9"
+          on:click={() => {
+            rankingsRows = [...rankingsRows, [name, rating]];
+            name = '';
+            rating = '';
+          }}
+        >
           Add
           <Plus class="w-6 h-6" />
         </Button>
@@ -46,17 +52,29 @@
         </div>
       </div>
       <div class="ml-auto w-1/4">
-        <Table columns={rankingsColumns} rows={rankingsRows} />
+        {#key rankingsRows}
+          <Table columns={rankingsColumns} rows={rankingsRows} />
+        {/key}
       </div>
     </div>
   </div>
 </Page>
 
-<NavButtons
-  next={() => {
-    customGoto('/create/stages');
+<Button
+  class="fixed bottom-10 right-10 rounded-full text-xl leading-5 gap-2.5 flex items-center justify-center"
+  on:click={() => {
+    // Send request to the server
   }}
-  prev={() => {
-    customGoto('/create/rating');
-  }}
-/>
+>
+  Create
+  <CheckCircle class="w-7 h-7" />
+</Button>
+
+<!--<NavButtons-->
+<!--  next={() => {-->
+<!--    customGoto('/create/stages');-->
+<!--  }}-->
+<!--  prev={() => {-->
+<!--    customGoto('/create/rating');-->
+<!--  }}-->
+<!--/>-->
