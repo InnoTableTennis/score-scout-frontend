@@ -1,5 +1,6 @@
 <script lang="ts">
   import TournamentTable from './(components)/TournamentTable.svelte';
+  import TournamentHeader from './TournamentHeader.svelte';
 
   const tournamentInfo = {
     players: [
@@ -46,6 +47,13 @@
   };
 </script>
 
+<TournamentHeader
+  title="Fall Students Tournament"
+  date={new Date('2023-10-22')}
+  participantsCount={32}
+  gamesPlayedCount={124}
+  customText="In progress"
+/>
 <div class="p-4 md:p-6 w-screen">
   <div class="md:grid md:grid-cols-2 gap-6">
     <TournamentTable group="First group" {tournamentInfo} class="mb-4 md:mb-0 md:!w-full" />
