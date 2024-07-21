@@ -45,7 +45,7 @@
           </Button>
         </div>
       </div>
-      <div class="ml-auto">
+      <div class="ml-auto w-1/4">
         <Table columns={rankingsColumns} rows={rankingsRows} />
       </div>
     </div>
