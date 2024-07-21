@@ -8,6 +8,7 @@
   import type { ITournament } from '$lib/types';
 
   import type { PageData } from './$types';
+  import { onMount } from 'svelte';
 
   export let data: PageData;
 
@@ -30,10 +31,25 @@
   //   },
   // ];
   const tournaments: ITournament[] = data.tournaments;
+  let username = '';
+
+  onMount(() => {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith('user=')) {
+        username = cookie.substring(5);
+        break;
+      }
+    }
+    if (!username) {
+      customGoto('/');
+    }
+  });
 </script>
 
 <Navbar
-  title="emailemail@gmail.com"
+  title={username}
   links={[
     { name: 'Active tournaments', href: '/profile/active', active: true },
     { name: 'Archived tournaments', href: '/profile/archived' },
@@ -45,6 +61,7 @@
       variant="ghost"
       class="mt-10 mx-6 md:mx-10 text-2xl md:text-lg gap-3 md:gap-2 flex items-center justify-center"
       on:click={() => {
+        document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
         customGoto('/');
       }}
     >

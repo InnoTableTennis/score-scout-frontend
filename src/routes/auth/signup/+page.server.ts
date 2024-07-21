@@ -3,6 +3,7 @@ import { schema } from './schema';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { fail } from '@sveltejs/kit';
+import { addUser } from '$lib/server/db';
 
 export const load: PageServerLoad = async () => {
   return {
@@ -17,6 +18,7 @@ export const actions: Actions = {
     if (!form.valid) {
       return fail(400, { form });
     }
+    addUser(form.data.email, form.data.password);
     return { form };
   },
 };

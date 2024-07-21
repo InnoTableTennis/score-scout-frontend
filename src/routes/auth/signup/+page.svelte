@@ -25,7 +25,8 @@
       isLoading = false;
       if (event.result.status === 200) {
         toast.success("You've successfully signed up!");
-        customGoto('/');
+        document.cookie = `user=${$formData.email}; path=/`;
+        customGoto('/profile/active');
       } else {
         toast.error("Couldn't sign up, please try again.");
       }

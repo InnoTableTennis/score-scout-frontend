@@ -40,6 +40,7 @@
       variant="ghost"
       class="mt-10 mx-6 md:mx-10 text-2xl md:text-lg gap-3 md:gap-2 flex items-center justify-center"
       on:click={() => {
+        document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
         customGoto('/');
       }}
     >
