@@ -34,24 +34,24 @@
     <div class="text-2xl font-bold text-primary">{title}</div>
     <div class="flex items-center mt-4">
       <User class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
-      <p class="text-foreground-select-option leading-7 font-medium outline-none">
+      <p class="text-black leading-7 font-medium outline-none">
         <span class="font-bold text-black">{participantsCount}</span> participants
       </p>
     </div>
     <div class="flex items-center mt-2">
       <Zap class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
-      <p class="text-foreground-select-option leading-7 font-medium outline-none">
+      <p class="text-black leading-7 font-medium outline-none">
         <span class="font-bold text-black">{gamesPlayedCount}</span> games played
       </p>
     </div>
     <div class="flex items-center mt-2">
       <Star class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
-      <p class="leading-7 font-medium outline-none">{customText}</p>
+      <p class="leading-7 font-medium outline-none"><span class="font-bold text-black">{customText}</span></p>
     </div>
   </div>
 
   <div class="flex flex-col justify-between ml-6 mt-4 md:mt-0">
-    <div class="text-foreground-select-option text-right md:text-right mb-2">
+    <div class="text-black text-right md:text-right mb-2">
       {formatDate(date)}
     </div>
 

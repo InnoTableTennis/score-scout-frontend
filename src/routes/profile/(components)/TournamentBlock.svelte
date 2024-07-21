@@ -2,16 +2,6 @@
   import { cn } from '$lib/utils.js';
   import { User, Zap, Star } from 'lucide-svelte';
 
-  type $$Props = {
-    title: string;
-    slug: string;
-    date: Date | string;
-    class?: string | undefined;
-    participantsCount: number;
-    gamesPlayedCount: number;
-    customText: string;
-  };
-
   export let title: string;
   export let slug: string;
   export let date: Date | string;
@@ -19,7 +9,7 @@
   export let gamesPlayedCount: number;
   export let customText: string;
 
-  let className: $$Props['class'] = undefined;
+  let className: string | undefined = undefined;
   export { className as class };
 
   function formatDate(date: Date | string) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TournamentHeader from './(components)/TournamentHeader.svelte';
+  import TournamentHeader from './TournamentHeader.svelte';
 </script>
 
 <TournamentHeader
