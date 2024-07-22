@@ -50,6 +50,11 @@
   export let data: PageData;
 </script>
 
+<svelte:head>
+  <title>{data.tournament.title}</title>
+  <meta name="description" content="View tournament '{data.tournament.title}'." />
+</svelte:head>
+
 <TournamentHeader
   title={data.tournament.title}
   date={new Date(data.tournament.date)}
