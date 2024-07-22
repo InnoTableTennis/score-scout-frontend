@@ -7,3 +7,5 @@ services:
     restart: unless-stopped
     ports:
       - '10001:3000'
+    environment:
+      - JWT_SECRET=SECRET_KEY

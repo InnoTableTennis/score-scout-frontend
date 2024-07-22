@@ -1,7 +1,9 @@
 <script lang="ts">
-  import { cn } from '$lib/utils.js';
-  import { User, Zap, Star, Trophy } from 'lucide-svelte';
+  import { cn, slugify } from '$lib/utils.js';
+  import { User, Zap, Star, Trophy, Pencil } from 'lucide-svelte';
   import Button from '$lib/components/Button.svelte';
+  import Modal from '$lib/components/Modal.svelte';
+  import Input from '$lib/components/Input.svelte';
 
   export let title: string;
   export let date: Date | string;
@@ -18,11 +20,35 @@
     }
     return date.toLocaleDateString();
   }
+
+  let editOpen = false;
 </script>
 
-<div class={cn('flex flex-col md:flex-row p-6 bg-secondary hover mt-20 w-full max-w-full', className)}>
+<Modal bind:open={editOpen} title="Change tournament title" description="Enter the new title for the tournament">
+  <form method="POST">
+    <Input type="text" name="title" placeholder="Tournament title" value={title} class="mb-4" />
+    <input type="hidden" name="slug" value={slugify(title)} />
+    <input type="hidden" name="action" value="edit" />
+    <Button type="submit">Save</Button>
+  </form>
+</Modal>
+
+<div class={cn('flex flex-col md:flex-row p-6 bg-secondary hover pt-20 w-full max-w-full', className)}>
   <div class="flex-1 flex flex-col">
-    <div class="text-2xl font-bold text-primary">{title}</div>
+    <div class="flex items-center gap-3">
+      <div class="text-2xl font-bold text-primary">
+        {title}
+      </div>
+      <Button
+        class="h-6 w-6 font-normal p-0"
+        variant="ghost"
+        on:click={() => {
+          editOpen = true;
+        }}
+      >
+        <Pencil class="w-6 h-6 text-primary" />
+      </Button>
+    </div>
     <div class="flex items-center mt-4">
       <User class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
       <p class="text-black leading-7 font-medium outline-none">
@@ -48,10 +74,14 @@
 
     {#if customText === 'In progress'}
       <div class="flex justify-end mt-auto mb-5">
-        <Button class="text-[20px] font-normal">
-          Finish tournament
-          <Trophy class="w-6 h-6 ml-2 text-white" fill="currentColor" />
-        </Button>
+        <form method="POST">
+          <input type="hidden" name="slug" value={slugify(title)} />
+          <input type="hidden" name="action" value="archive" />
+          <Button class="text-[20px] font-normal" type="submit">
+            Finish tournament
+            <Trophy class="w-6 h-6 ml-2 text-white" fill="currentColor" />
+          </Button>
+        </form>
       </div>
     {/if}
   </div>

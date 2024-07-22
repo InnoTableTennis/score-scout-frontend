@@ -7,28 +7,21 @@
   import { customGoto } from '$lib/utils';
   import type { ITournament } from '$lib/types';
 
-  const tournaments: ITournament[] = [
-    {
-      title: 'Fall Students Tournament',
-      slug: 'fall-students-tournament',
-      date: new Date('2023-10-22'),
-      participantsCount: 32,
-      gamesPlayedCount: 124,
-      customText: 'In progress',
-    },
-    {
-      title: 'Spring Students Tournament',
-      slug: 'spring-students-tournament',
-      date: new Date('2023-10-22'),
-      participantsCount: 32,
-      gamesPlayedCount: 124,
-      customText: 'In progress',
-    },
-  ];
+  import type { PageData } from './$types';
+
+  export let data: PageData;
+
+  const email = data.user;
+  const tournaments: ITournament[] = data.tournaments;
 </script>
 
+<svelte:head>
+  <title>{email} tournaments</title>
+  <meta name="description" content="View active tournaments for user '{email}'." />
+</svelte:head>
+
 <Navbar
-  title="emailemail@gmail.com"
+  title={email}
   links={[
     { name: 'Active tournaments', href: '/profile/active' },
     { name: 'Archived tournaments', href: '/profile/archived', active: true },
@@ -40,6 +33,7 @@
       variant="ghost"
       class="mt-10 mx-6 md:mx-10 text-2xl md:text-lg gap-3 md:gap-2 flex items-center justify-center"
       on:click={() => {
+        document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
         customGoto('/');
       }}
     >

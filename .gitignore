@@ -25,3 +25,4 @@ vite.config.ts.timestamp-*
 
 #Report
 eslint_report.json
+db.sqlite

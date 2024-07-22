@@ -6,3 +6,8 @@ export interface ITournament {
   gamesPlayedCount: number;
   customText: string;
 }
+
+export interface IUser {
+  email: string;
+  password: string;
+}

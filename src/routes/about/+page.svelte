@@ -6,16 +6,11 @@
   import { customGoto } from '$lib/utils';
 </script>
 
-<svelte:head>
-  <title>Main page</title>
-  <meta name="description" content="Main page" />
-</svelte:head>
-
 <Navbar
-  title="Home page"
+  title="About page"
   links={[
-    { name: 'Home', href: '/', active: true },
-    { name: 'About', href: '/about' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about', active: true },
     { name: 'Examples', href: '/example' },
     { name: 'Sign In', href: '/auth/signin' },
     { name: 'Sign Up', href: '/auth/signup' },
@@ -40,15 +35,14 @@
   </div>
 </Navbar>
 <Page>
-  <div class="h-screen w-full bg-white p-4 text-xl">
-    <p class="text-primary font-bold mb-4 mt-16">Welcome to the Home page!</p>
-    <p class="mb-2">In the menu to the right, you can find the following options:</p>
-    <ul>
-      <li><span class="text-primary font-medium">Home</span> - navigate to the home page</li>
-      <li><span class="text-primary font-medium">About</span> - learn more about the website and developers</li>
-      <li><span class="text-primary font-medium">Examples</span> - explore some example content</li>
-      <li><span class="text-primary font-medium">Sign In</span> - sign in to your account</li>
-      <li><span class="text-primary font-medium">Sign Up</span> - create a new account</li>
-    </ul>
-  </div>
-</Page>
+  <div class="h-screen w-full bg-white p-4">
+    <div class="text-2xl font-bold text-primary mt-16">About</div>
+    <div class="text-lg mt-4">
+      We are a team of Innopolis University students who are passionate about web development and software engineering. Our goal is to create a
+      platform for organizing and participating in tournaments. The project is open-source, written in SvelteKit, TailwindCSS, TypeScript and PostCSS.
+      It uses SQLite for the database. You can find the source code on our
+      <a href="https://github.com/InnoTableTennis/score-scout-frontend" class="text-primary">GitHub repository</a> under the GNU Affero General Public
+      License v3.0.
+    </div>
+  </div></Page
+>

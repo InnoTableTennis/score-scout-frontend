@@ -6,6 +6,11 @@
   import { customGoto } from '$lib/utils';
 </script>
 
+<svelte:head>
+  <title>Create tournament (Rating)</title>
+  <meta name="description" content="Choose rating system for the tournament." />
+</svelte:head>
+
 <Navbar
   title="Create tournament"
   links={[

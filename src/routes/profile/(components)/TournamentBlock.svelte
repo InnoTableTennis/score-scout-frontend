@@ -1,6 +1,8 @@
 <script lang="ts">
   import { cn } from '$lib/utils.js';
-  import { User, Zap, Star } from 'lucide-svelte';
+  import { User, Zap, Star, Trash } from 'lucide-svelte';
+  import Button from '$lib/components/Button.svelte';
+  import Input from '$lib/components/Input.svelte';
 
   type $$Props = {
     title: string;
@@ -28,9 +30,16 @@
     }
     return date.toLocaleDateString();
   }
+
+  function kostil(event: Event) {
+    if ((event.target as HTMLElement).tagName === 'BUTTON') {
+      event.preventDefault();
+      (event.target as HTMLElement).closest('form')?.submit();
+    }
+  }
 </script>
 
-<a href={`/tournament/${slug}`} class={cn('shadow-[0_0_4px_2px_#0000003f] hover pl-6 pr-6 rounded-[16px] py-5', className)}>
+<a href={`/tournament/${slug}`} class={cn('shadow-[0_0_4px_2px_#0000003f] hover pl-6 pr-6 rounded-[16px] py-5', className)} on:click={kostil}>
   <div class="flex flex-wrap justify-between items-center">
     <div class="text-2xl font-bold">{title}</div>
     <div class="text-foreground-select-option mt-1">{formatDate(date)}</div>
@@ -47,8 +56,17 @@
       <span class="font-bold text-black">{gamesPlayedCount}</span> games played
     </p>
   </div>
-  <div class="flex items-center mt-2">
-    <Star class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
-    <p class="leading-7 font-medium outline-none">{customText}</p>
+  <div class="flex flex-wrap justify-between items-center">
+    <div class="flex items-center mt-2">
+      <Star class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
+      <p class="leading-7 font-medium outline-none">{customText}</p>
+    </div>
+    <form method="POST">
+      <Input class="hidden" name="slug" value={slug} />
+      <Button type="submit" variant="ghost" class="text-sm">
+        <Trash class="w-6 h-6" />
+        Delete
+      </Button>
+    </form>
   </div>
 </a>
