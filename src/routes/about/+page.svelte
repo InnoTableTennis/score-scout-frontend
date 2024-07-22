@@ -43,5 +43,7 @@
   </div>
 </Navbar>
 <Page>
-  <div class="h-screen w-full bg-white p-4"></div>
+  <div class="h-screen w-full bg-white p-4">
+    <!--  Write about page with team and github repository and license-->
+  </div>
 </Page>
