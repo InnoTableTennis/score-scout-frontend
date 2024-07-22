@@ -39,7 +39,13 @@
       <div class="text-2xl font-bold text-primary">
         {title}
       </div>
-      <Button class="h-6 w-6 font-normal p-0" variant="ghost" on:click={() => { editOpen = true; }}>
+      <Button
+        class="h-6 w-6 font-normal p-0"
+        variant="ghost"
+        on:click={() => {
+          editOpen = true;
+        }}
+      >
         <Pencil class="w-6 h-6 text-primary" />
       </Button>
     </div>
