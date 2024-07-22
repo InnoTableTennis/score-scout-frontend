@@ -8,4 +8,4 @@ services:
     ports:
       - '10001:3000'
     environment:
-      - JWT_SECRET=${JWT_SECRET}
+      - JWT_SECRET=SECRET_KEY

@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '$env/static/private';
+
+const JWT_SECRET = 'SECRET_KEY';
 
 export function createToken(email: string): string {
   return jwt.sign(
