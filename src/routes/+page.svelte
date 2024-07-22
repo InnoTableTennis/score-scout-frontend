@@ -1,24 +1,16 @@
 <script lang="ts">
-  import Checkbox from '$lib/components/Checkbox.svelte';
   import Button from '$lib/components/Button.svelte';
-  import Input from '$lib/components/Input.svelte';
-  import Select from '$lib/components/Select.svelte';
-  import Label from '$lib/components/Label.svelte';
-  import Textarea from '$lib/components/Textarea.svelte';
-  import Switch from '$lib/components/Switch.svelte';
   import Navbar from '$lib/components/Navbar.svelte';
   import Page from '$lib/components/Page.svelte';
-  import { Plus, LogOut, CircleCheck } from 'lucide-svelte';
+  import { Plus, LogOut } from 'lucide-svelte';
   import { customGoto } from '$lib/utils';
-  import Modal from '$lib/components/Modal.svelte';
-
-  let dialogOpen = false;
 </script>
 
 <Navbar
-  title="Example page"
+  title="Home page"
   links={[
-    { name: 'Main', href: '/', active: true },
+    { name: 'Home', href: '/', active: true },
+    { name: 'About', href: '/about' },
     { name: 'Examples', href: '/example' },
     { name: 'Sign In', href: '/auth/signin' },
     { name: 'Sign Up', href: '/auth/signup' },
@@ -43,5 +35,15 @@
   </div>
 </Navbar>
 <Page>
-  <div class="h-screen w-full bg-white p-4"></div>
+  <div class="h-screen w-full bg-white p-4 text-xl">
+    <p class="text-primary font-bold mb-4 mt-16">Welcome to the Home page!</p>
+    <p class="mb-2">In the menu to the right, you can find the following options:</p>
+    <ul>
+      <li><span class="text-primary font-medium">Home</span> - navigate to the home page</li>
+      <li><span class="text-primary font-medium">About</span> - learn more about the website and developers</li>
+      <li><span class="text-primary font-medium">Examples</span> - explore some example content</li>
+      <li><span class="text-primary font-medium">Sign In</span> - sign in to your account</li>
+      <li><span class="text-primary font-medium">Sign Up</span> - create a new account</li>
+    </ul>
+  </div>
 </Page>

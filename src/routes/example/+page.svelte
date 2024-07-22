@@ -18,7 +18,8 @@
 <Navbar
   title="Example page"
   links={[
-    { name: 'Main', href: '/' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { name: 'Examples', href: '/example', active: true },
     { name: 'Sign In', href: '/auth/signin' },
     { name: 'Sign Up', href: '/auth/signup' },
