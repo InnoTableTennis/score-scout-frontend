@@ -3,9 +3,8 @@
   import Navbar from '$lib/components/Navbar.svelte';
   import Page from '$lib/components/Page.svelte';
   import Button from '$lib/components/Button.svelte';
-  import NavButtons from '../(components)/NavButtons.svelte';
-  import { customGoto, slugify } from '$lib/utils';
-  import { CheckCircle, Upload, Plus, Inbox } from 'lucide-svelte';
+  import { slugify } from '$lib/utils';
+  import { CheckCircle, Upload, Plus } from 'lucide-svelte';
   import Table from '$lib/components/Table.svelte';
   import Modal from '$lib/components/Modal.svelte';
 
