@@ -16,6 +16,11 @@
   let tournamentName = '';
 </script>
 
+<svelte:head>
+  <title>Create tournament (Add players)</title>
+  <meta name="description" content="Add players to the tournament." />
+</svelte:head>
+
 <Navbar
   title="Create tournament"
   links={[

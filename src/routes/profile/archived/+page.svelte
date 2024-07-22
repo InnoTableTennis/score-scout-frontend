@@ -11,31 +11,17 @@
 
   export let data: PageData;
 
-  // const tournaments: ITournament[] = [
-  //   {
-  //     title: 'Fall Students Tournament',
-  //     slug: 'fall-students-tournament',
-  //     date: new Date('2023-10-22'),
-  //     participantsCount: 32,
-  //     gamesPlayedCount: 124,
-  //     customText: 'In progress',
-  //   },
-  //   {
-  //     title: 'Spring Students Tournament',
-  //     slug: 'spring-students-tournament',
-  //     date: new Date('2023-10-22'),
-  //     participantsCount: 32,
-  //     gamesPlayedCount: 124,
-  //     customText: 'In progress',
-  //   },
-  // ];
-
-  const username = data.user;
+  const email = data.user;
   const tournaments: ITournament[] = data.tournaments;
 </script>
 
+<svelte:head>
+  <title>{email} tournaments</title>
+  <meta name="description" content="View active tournaments for user '{email}'." />
+</svelte:head>
+
 <Navbar
-  title={username}
+  title={email}
   links={[
     { name: 'Active tournaments', href: '/profile/active' },
     { name: 'Archived tournaments', href: '/profile/archived', active: true },

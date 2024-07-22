@@ -15,6 +15,11 @@
   let dialogOpen = false;
 </script>
 
+<svelte:head>
+  <title>Example</title>
+  <meta name="description" content="Example page with basic components" />
+</svelte:head>
+
 <Navbar
   title="Example page"
   links={[

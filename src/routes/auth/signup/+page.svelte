@@ -42,6 +42,11 @@
   });
 </script>
 
+<svelte:head>
+  <title>Sign up</title>
+  <meta name="description" content="Sign up to create an account" />
+</svelte:head>
+
 <FullScreenForm>
   <form
     method="POST"

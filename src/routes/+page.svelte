@@ -6,6 +6,11 @@
   import { customGoto } from '$lib/utils';
 </script>
 
+<svelte:head>
+  <title>Main page</title>
+  <meta name="description" content="Main page" />
+</svelte:head>
+
 <Navbar
   title="Home page"
   links={[
