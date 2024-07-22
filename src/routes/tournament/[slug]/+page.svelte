@@ -45,7 +45,7 @@
   <meta name="description" content="View tournament '{data.tournament.title}'." />
 </svelte:head>
 
-<Button class="absolute m-4" on:click={() => history.back()}>
+<Button class="absolute my-2" on:click={() => history.back()} variant="ghost">
   <ArrowLeft />
   Back
 </Button>
