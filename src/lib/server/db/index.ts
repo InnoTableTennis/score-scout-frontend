@@ -47,3 +47,8 @@ export function deleteTournament(slug: string) {
   const stmt = db.prepare('DELETE FROM tournaments WHERE slug = ?');
   stmt.run(slug);
 }
+
+export function updateTournament(slug: string, title: string) {
+  const stmt = db.prepare('UPDATE tournaments SET title = ? WHERE slug = ?');
+  stmt.run(title, slug);
+}
