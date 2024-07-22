@@ -13,3 +13,14 @@ export function customGoto(url: string) {
   a.click();
   document.body.removeChild(a);
 }
+
+export function slugify(str: string) {
+  return String(str)
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '');
+}

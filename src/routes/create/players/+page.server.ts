@@ -1,3 +1,20 @@
-import type { PageServerLoad } from './$types';
+import { createTournament } from '$lib/server/db';
+import { redirect } from '@sveltejs/kit';
 
-export const load = (async (event) => {}) satisfies PageServerLoad;
+/** @type {import('./$types').Actions} */
+export const actions = {
+  default: async (event) => {
+    // read form data content
+    const formData = await event.request.formData();
+    console.log('formData', formData);
+    createTournament({
+      title: formData.get('title') as string,
+      slug: formData.get('slug') as string,
+      date: new Date().toISOString().split('T')[0],
+      participantsCount: formData.get('participantsCount') ? parseInt(formData.get('participantsCount') as string) : 0,
+      gamesPlayedCount: 0,
+      customText: 'In progress',
+    });
+    throw redirect(303, '/profile/active');
+  },
+};

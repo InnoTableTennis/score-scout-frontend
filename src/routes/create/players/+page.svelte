@@ -4,14 +4,17 @@
   import Page from '$lib/components/Page.svelte';
   import Button from '$lib/components/Button.svelte';
   import NavButtons from '../(components)/NavButtons.svelte';
-  import { customGoto } from '$lib/utils';
-  import { CheckCircle, Upload, Plus } from 'lucide-svelte';
+  import { customGoto, slugify } from '$lib/utils';
+  import { CheckCircle, Upload, Plus, Inbox } from 'lucide-svelte';
   import Table from '$lib/components/Table.svelte';
+  import Modal from '$lib/components/Modal.svelte';
 
   let rankingsColumns = ['Name', 'Rating'];
   let rankingsRows: string[][] = [];
   let name = '';
   let rating = '';
+  let openModal = false;
+  let tournamentName = '';
 </script>
 
 <Navbar
@@ -63,13 +66,23 @@
 <Button
   class="fixed bottom-10 right-10 rounded-full text-xl leading-5 gap-2.5 flex items-center justify-center"
   on:click={() => {
-    // Send request to the server
+    openModal = true;
   }}
 >
   Create
   <CheckCircle class="w-7 h-7" />
 </Button>
-
+<Modal bind:open={openModal} title="Create tournament">
+  <form method="POST">
+    <Input variant="shadowed" class="mt-1 mb-5 w-[300px]" placeholder="Tournament name" name="title" bind:value={tournamentName} />
+    <Input class="hidden" name="slug" value={slugify(tournamentName)} />
+    <Input class="hidden" name="participantsCount" value={rankingsRows.length} />
+    <Button class="w-[140px] mb-9" type="submit">
+      Create
+      <CheckCircle class="w-6 h-6" />
+    </Button>
+  </form>
+</Modal>
 <!--<NavButtons-->
 <!--  next={() => {-->
 <!--    customGoto('/create/stages');-->
