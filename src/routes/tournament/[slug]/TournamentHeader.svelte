@@ -1,7 +1,9 @@
 <script lang="ts">
   import { cn, slugify } from '$lib/utils.js';
-  import { User, Zap, Star, Trophy } from 'lucide-svelte';
+  import { User, Zap, Star, Trophy, Pencil } from 'lucide-svelte';
   import Button from '$lib/components/Button.svelte';
+  import Modal from '$lib/components/Modal.svelte';
+  import Input from '$lib/components/Input.svelte';
 
   export let title: string;
   export let date: Date | string;
@@ -19,23 +21,28 @@
     return date.toLocaleDateString();
   }
 
-  function submitTitle(event: Event) {
-    const form = (event.target as HTMLElement).closest('form');
-    title = form?.querySelector('[contenteditable="true"]')?.textContent || title;
-    form?.submit();
-  }
+  let editOpen = false;
 </script>
+
+<Modal bind:open={editOpen} title="Change tournament title" description="Enter the new title for the tournament">
+  <form method="POST">
+    <Input type="text" name="title" placeholder="Tournament title" value={title} class="mb-4" />
+    <input type="hidden" name="slug" value={slugify(title)} />
+    <input type="hidden" name="action" value="edit" />
+    <Button type="submit">Save</Button>
+  </form>
+</Modal>
 
 <div class={cn('flex flex-col md:flex-row p-6 bg-secondary hover pt-20 w-full max-w-full', className)}>
   <div class="flex-1 flex flex-col">
-    <form method="POST">
-      <div class="text-2xl font-bold text-primary" contenteditable="true" on:blur={submitTitle}>
+    <div class="flex items-center gap-3">
+      <div class="text-2xl font-bold text-primary">
         {title}
       </div>
-      <input type="hidden" name="slug" value={slugify(title)} />
-      <input type="hidden" name="action" value="edit" />
-      <input type="hidden" name="title" value={title} />
-    </form>
+      <Button class="h-6 w-6 font-normal p-0" variant="ghost" on:click={() => { editOpen = true; }}>
+        <Pencil class="w-6 h-6 text-primary" />
+      </Button>
+    </div>
     <div class="flex items-center mt-4">
       <User class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
       <p class="text-black leading-7 font-medium outline-none">
