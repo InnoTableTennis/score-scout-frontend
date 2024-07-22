@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { cn } from '$lib/utils.js';
+  import { cn, slugify } from '$lib/utils.js';
   import { User, Zap, Star, Trophy } from 'lucide-svelte';
   import Button from '$lib/components/Button.svelte';
 
@@ -48,10 +48,13 @@
 
     {#if customText === 'In progress'}
       <div class="flex justify-end mt-auto mb-5">
-        <Button class="text-[20px] font-normal">
-          Finish tournament
-          <Trophy class="w-6 h-6 ml-2 text-white" fill="currentColor" />
-        </Button>
+        <form method="POST">
+          <input type="hidden" name="slug" value={slugify(title)} />
+          <Button class="text-[20px] font-normal" type="submit">
+            Finish tournament
+            <Trophy class="w-6 h-6 ml-2 text-white" fill="currentColor" />
+          </Button>
+        </form>
       </div>
     {/if}
   </div>

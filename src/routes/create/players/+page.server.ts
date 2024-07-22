@@ -4,9 +4,7 @@ import { redirect } from '@sveltejs/kit';
 /** @type {import('./$types').Actions} */
 export const actions = {
   default: async (event) => {
-    // read form data content
     const formData = await event.request.formData();
-    console.log('formData', formData);
     createTournament({
       title: formData.get('title') as string,
       slug: formData.get('slug') as string,

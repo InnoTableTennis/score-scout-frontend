@@ -72,12 +72,12 @@
   Create
   <CheckCircle class="w-7 h-7" />
 </Button>
-<Modal bind:open={openModal} title="Create tournament">
+<Modal bind:open={openModal} title="Create tournament" description="Enter tournament name to create it">
   <form method="POST">
     <Input variant="shadowed" class="mt-1 mb-5 w-[300px]" placeholder="Tournament name" name="title" bind:value={tournamentName} />
     <Input class="hidden" name="slug" value={slugify(tournamentName)} />
     <Input class="hidden" name="participantsCount" value={rankingsRows.length} />
-    <Button class="w-[140px] mb-9" type="submit">
+    <Button class="w-[140px] pt-2" type="submit">
       Create
       <CheckCircle class="w-6 h-6" />
     </Button>

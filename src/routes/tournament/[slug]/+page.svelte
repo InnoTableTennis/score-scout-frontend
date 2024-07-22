@@ -1,6 +1,7 @@
 <script lang="ts">
   import TournamentTable from './(components)/TournamentTable.svelte';
   import TournamentHeader from './TournamentHeader.svelte';
+  import type { PageData } from './$types';
 
   const tournamentInfo = {
     players: [
@@ -45,14 +46,16 @@
       },
     ],
   };
+
+  export let data: PageData;
 </script>
 
 <TournamentHeader
-  title="Fall Students Tournament"
-  date={new Date('2023-10-22')}
-  participantsCount={32}
-  gamesPlayedCount={124}
-  customText="In progress"
+  title={data.tournament.title}
+  date={new Date(data.tournament.date)}
+  participantsCount={data.tournament.participantsCount}
+  gamesPlayedCount={data.tournament.gamesPlayedCount}
+  customText={data.tournament.customText}
 />
 <div class="p-4 md:p-6 w-screen">
   <div class="md:grid md:grid-cols-2 gap-6">

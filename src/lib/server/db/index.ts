@@ -29,11 +29,16 @@ export function getUser(email: string): IUser | undefined {
 }
 
 export function archiveTournament(slug: string) {
-  const stmt = db.prepare('UPDATE tournaments SET customText = "Archived" WHERE slug = ?');
+  const stmt = db.prepare("UPDATE tournaments SET customText = 'Archived' WHERE slug = ?");
   stmt.run(slug);
 }
 
 export function createTournament(tournament: ITournament) {
   const stmt = db.prepare('INSERT INTO tournaments (title, slug, date, participantsCount, gamesPlayedCount, customText) VALUES (?, ?, ?, ?, ?, ?)');
   stmt.run(tournament.title, tournament.slug, tournament.date, tournament.participantsCount, tournament.gamesPlayedCount, tournament.customText);
+}
+
+export function getTournament(slug: string): ITournament | undefined {
+  const stmt = db.prepare('SELECT * FROM tournaments WHERE slug = ?');
+  return stmt.get(slug) as ITournament;
 }
