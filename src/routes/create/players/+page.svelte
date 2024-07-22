@@ -42,6 +42,10 @@
         <Button
           class="w-[140px] mb-9"
           on:click={() => {
+            if (name === '') return alert('Name is required');
+            if (rating === '') rating = '0';
+            if (isNaN(+rating)) return alert('Rating should be a number');
+            if (+rating < 0 || +rating > 100) return alert('Rating should be between 0 and 100');
             rankingsRows = [...rankingsRows, [name, rating]];
             name = '';
             rating = '';
