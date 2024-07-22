@@ -18,11 +18,24 @@
     }
     return date.toLocaleDateString();
   }
+
+  function submitTitle(event: Event) {
+    const form = (event.target as HTMLElement).closest('form');
+    title = form?.querySelector('[contenteditable="true"]')?.textContent || title;
+    form?.submit();
+  }
 </script>
 
 <div class={cn('flex flex-col md:flex-row p-6 bg-secondary hover pt-20 w-full max-w-full', className)}>
   <div class="flex-1 flex flex-col">
-    <div class="text-2xl font-bold text-primary">{title}</div>
+    <form method="POST">
+      <div class="text-2xl font-bold text-primary" contenteditable="true" on:blur={submitTitle}>
+        {title}
+      </div>
+      <input type="hidden" name="slug" value={slugify(title)} />
+      <input type="hidden" name="action" value="edit" />
+      <input type="hidden" name="title" value={title} />
+    </form>
     <div class="flex items-center mt-4">
       <User class="w-6 h-6 mr-2 text-nav-inactive" fill="currentColor" />
       <p class="text-black leading-7 font-medium outline-none">
@@ -50,6 +63,7 @@
       <div class="flex justify-end mt-auto mb-5">
         <form method="POST">
           <input type="hidden" name="slug" value={slugify(title)} />
+          <input type="hidden" name="action" value="archive" />
           <Button class="text-[20px] font-normal" type="submit">
             Finish tournament
             <Trophy class="w-6 h-6 ml-2 text-white" fill="currentColor" />
