@@ -1,6 +1,7 @@
 import Database from 'better-sqlite3';
 import type { ITournament, IUser } from '$lib/types';
 import { init } from '$lib/server/db/init';
+import { slugify } from '$lib/utils';
 
 export const db = new Database('db.sqlite', { verbose: console.log });
 init();
@@ -49,6 +50,6 @@ export function deleteTournament(slug: string) {
 }
 
 export function updateTournament(slug: string, title: string) {
-  const stmt = db.prepare('UPDATE tournaments SET title = ? WHERE slug = ?');
-  stmt.run(title, slug);
+  const stmt = db.prepare('UPDATE tournaments SET title = ?, slug = ? WHERE slug = ?');
+  stmt.run(title, slugify(title), slug);
 }
