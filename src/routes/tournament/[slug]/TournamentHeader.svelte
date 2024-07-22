@@ -20,7 +20,7 @@
   }
 </script>
 
-<div class={cn('flex flex-col md:flex-row p-6 bg-secondary hover mt-20 w-full max-w-full', className)}>
+<div class={cn('flex flex-col md:flex-row p-6 bg-secondary hover pt-20 w-full max-w-full', className)}>
   <div class="flex-1 flex flex-col">
     <div class="text-2xl font-bold text-primary">{title}</div>
     <div class="flex items-center mt-4">
