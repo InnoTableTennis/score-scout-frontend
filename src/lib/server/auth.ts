@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '$env/static/private';
 
 export function createToken(email: string): string {
   return jwt.sign(
     {
       email: email,
     },
-    'SUPERSECRET',
+    JWT_SECRET,
     {
       expiresIn: '1d',
     }
@@ -14,7 +15,7 @@ export function createToken(email: string): string {
 
 export function verifyToken(token: string): string | null {
   try {
-    const payload = jwt.verify(token, 'SUPERSECRET') as { email: string };
+    const payload = jwt.verify(token, JWT_SECRET) as { email: string };
     return payload.email;
   } catch {
     return null;
