@@ -42,3 +42,8 @@ export function getTournament(slug: string): ITournament | undefined {
   const stmt = db.prepare('SELECT * FROM tournaments WHERE slug = ?');
   return stmt.get(slug) as ITournament;
 }
+
+export function deleteTournament(slug: string) {
+  const stmt = db.prepare('DELETE FROM tournaments WHERE slug = ?');
+  stmt.run(slug);
+}
